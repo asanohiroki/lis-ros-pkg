@@ -63,13 +63,13 @@ class ExeNode{
     }
 
     pub_rate.publish(rate); //The rate at which the joints are published can be controlled by publishing a frequency on this topic. Default rate is 100Hz; Maximum is 1000Hz
-    pub_joint_cmd_timeout_l.publish(cmd_timeout);
-    pub_joint_cmd_timeout_r.publish(cmd_timeout);
     ros::Rate loop_rate(100);
     
     for (int i = 0; i < 10 ;i++) {
       pub_speed_ratio_l.publish(speed_ratio); //set joint speed default =0.3 range= 0.0-1.0
       pub_speed_ratio_r.publish(speed_ratio); //set joint speed default =0.3 range= 0.0-1.0
+      pub_joint_cmd_timeout_l.publish(cmd_timeout);
+      pub_joint_cmd_timeout_r.publish(cmd_timeout);
       pub_joint_cmd_l.publish(joint_cmd_l);
       pub_joint_cmd_r.publish(joint_cmd_r);
 
