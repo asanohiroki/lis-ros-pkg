@@ -162,6 +162,11 @@ add_executable(test_node5 src/test_node5.cpp)
 target_link_libraries(test_node5
   ${catkin_LIBRARIES}
 )
+
+add_executable(joint_ik_test src/joint_ik_test.cpp)
+target_link_libraries(joint_ik_test
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
