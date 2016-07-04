@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "test_IK_joint");
+    ros::init(argc, argv, "joint_ik_test");
     ros::NodeHandle n;
     std::cout << "Initializing node... " << std::endl;
 
@@ -18,7 +18,9 @@ int main(int argc, char **argv)
     baxter_core_msgs::SolvePositionIK iksvc;
     iksvc.request.pose_stamp.resize(1);
     iksvc.request.pose_stamp[0].header.stamp = ros::Time::now();
-    iksvc.request.pose_stamp[0].header.frame_id = "base";  
+    iksvc.request.pose_stamp[0].header.frame_id = "base"; 
+    
+    //目標左手先位置・姿勢
     iksvc.request.pose_stamp[0].pose.position.x = 0.7;
     iksvc.request.pose_stamp[0].pose.position.y = 0.0;
     iksvc.request.pose_stamp[0].pose.position.z = 0.0;
