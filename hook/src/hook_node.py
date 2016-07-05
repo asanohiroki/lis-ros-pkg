@@ -86,6 +86,15 @@ class Hook(object):
 
                 elif cmd_string.data is 'f':
                         self.move_gripper(0, 'all')
+                        
+                elif cmd_string.data is 'g':
+                        self.move_gripper(0, 'left')
+                        self.move_gripper(10, 'right')
+
+                elif cmd_string.data is 'h':
+                        self.move_gripper(10, 'left')
+                        self.move_gripper(0, 'right')
+                        
                 else:
                     rospy.loginfo(rospy.get_name() + ": hook_node heard %s. Its msg is false!" % cmd_string.data)
 
