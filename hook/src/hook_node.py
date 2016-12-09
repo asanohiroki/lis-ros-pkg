@@ -97,7 +97,6 @@ class Hook(object):
                         self.move_gripper(0, 'right')
                         
 		elif cmd_string.data[0] is 'r':
-			cmd_float = 70.0
 			cmd_float = int(cmd_string.data[2:])
 			if cmd_float >= 0 and cmd_float <= 60.0:
 				self.move_gripper(cmd_float, 'right')
@@ -106,7 +105,6 @@ class Hook(object):
 			
 
 	       	elif cmd_string.data[0] is 'l':
-			cmd_float = 70.0
 			cmd_float = int(cmd_string.data[2:])
 			if cmd_float >= 0 and cmd_float <= 60.0:
 				self.move_gripper(cmd_float, 'right')
