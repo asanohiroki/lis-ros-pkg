@@ -5,6 +5,7 @@
 # This module has been tested on python ver.2.6.6
 # It need pySerial(http://pyserial.sourceforge.net/)
 # (C) 2015 Hiroaki Matsuda and Naohiro Hayashi
+# 2016 Asano
 
 import pymx
 import rospy
@@ -95,6 +96,23 @@ class Hook(object):
                         self.move_gripper(10, 'left')
                         self.move_gripper(0, 'right')
                         
+		elif cmd_string.data[0] is 'r':
+			cmd_float = 70.0
+			cmd_float = int(cmd_string.data[2:])
+			if cmd_float >= 0 and cmd_float <= 60.0:
+				self.move_gripper(cmd_float, 'right')
+			else:
+				rospy.loginfo(rospy.get_name() + ": hook_node heard %s. Its msg is false!" % cmd_string.data)
+			
+
+	       	elif cmd_string.data[0] is 'l':
+			cmd_float = 70.0
+			cmd_float = int(cmd_string.data[2:])
+			if cmd_float >= 0 and cmd_float <= 60.0:
+				self.move_gripper(cmd_float, 'right')
+			else:
+				rospy.loginfo(rospy.get_name() + ": hook_node heard %s. Its msg is false!" % cmd_string.data)			
+
                 else:
                     rospy.loginfo(rospy.get_name() + ": hook_node heard %s. Its msg is false!" % cmd_string.data)
 
